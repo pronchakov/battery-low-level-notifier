@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - copy:
+        src: check-battery.sh
+        dest: ~/bin/check-battery.sh
+        mode: 0700
+    - cron:
+        name: check-battery
+        state: present
+        job: ~/bin/check-battery.sh
+...

@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - file:
+        state: absent
+        path: ~/bin/check-battery.sh
+    - cron:
+        name: check-battery
+        state: absent
+...
